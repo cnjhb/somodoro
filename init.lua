@@ -49,7 +49,7 @@ local function new(args)
 		class = somodoro,
 	}
 	ret.seconds = args.minutes * 60
-	ret.elapsed = 0
+	ret.elapsed = ret.seconds
 	ret.timer = timer {
 		timeout = 1,
 		callback = function()

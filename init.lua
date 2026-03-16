@@ -34,9 +34,11 @@ function somodoro:toggle()
 end
 
 function somodoro:finish()
-	self.timer:stop()
-	self.elapsed = self.seconds
-	self:emit_signal("somodoro::finish")
+	if self.elapsed ~= self.seconds then
+		self.timer:stop()
+		self.elapsed = self.seconds
+		self:emit_signal("somodoro::finish")
+	end
 end
 
 local function new(args)
